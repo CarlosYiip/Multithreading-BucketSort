@@ -84,7 +84,6 @@ std::map<unsigned, unsigned> distributeWork(std::vector<unsigned>& numbersToSort
 // TODO: replace this with a parallel version.
 void BucketSort::sort(unsigned int numCores) {
     // Phase 1
-    --numCores;
     unsigned n = static_cast<unsigned>(numbersToSort.size());
     std::map<unsigned, unsigned> digitToCore = distributeWork(numbersToSort, numCores);
     std::vector<std::thread> containerOfThreads;
@@ -142,6 +141,7 @@ void BucketSort::sort(unsigned int numCores) {
         it->join();
 
     containerOfThreads.clear();
+
     // Phase 4
     numbersToSort.clear();
     for (auto it = digitToCore.cbegin(); it != digitToCore.cend(); ++it) {
@@ -150,3 +150,16 @@ void BucketSort::sort(unsigned int numCores) {
         std::copy(v.cbegin(), v.cend(), std::back_inserter(numbersToSort));
     }   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

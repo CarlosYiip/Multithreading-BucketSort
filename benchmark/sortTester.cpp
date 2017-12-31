@@ -6,7 +6,7 @@
 
 int main() {
     
-    unsigned int totalNumbers = 5000000;
+    unsigned int totalNumbers = 10000000U;
     unsigned int printIndex = 259000;
     
     // use totalNumbers required as the seed for the random
